@@ -1,10 +1,4 @@
-<p>Hello world - it is reloading automatically!</p>
-<p>{{ message }}</p>
-<p>{{ 2+2 }}</p>
-<a [href]="url" target="_blank">Click me</a>
-<button (click)="buttonClicked()">Click me first!</button>
-<!-- this is a shitty way -->
-<!-- <input type="text" [value]="message" (input)="message = getValue($event)"> -->
+<app-todo-list [todos]="todoList" (removeTodoClicked)="removeTodo($event)"></app-todo-list>
 
-<!-- This is a proper way to use 2-way data binding -->
- <input type="text" [(ngModel)]="message">
+<input type="text" [(ngModel)]="newTodoItem">
+<button (click)="addNewTodoItem()">Add new todo</button>

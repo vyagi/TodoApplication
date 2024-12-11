@@ -1,0 +1,7 @@
+@if (listVisible) {
+<ul>
+    @for (todoItem of todos; track $index) {
+    <li>{{ todoItem }} <span (click)="removeButtonClicked($index)">x</span></li>
+    }
+</ul>
+}
