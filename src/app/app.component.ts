@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +11,22 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  todoList = [
-    "Learn Angular",
-    "Have fun using it"
-  ]
+  todoList: string[] = [];
+
+  constructor(private todoService: TodoService) { }
+
+  ngOnInit() {
+    this.todoList = this.todoService.getTodos();
+  }
 
   newTodoItem = "";
 
   addNewTodoItem() {
-    this.todoList.push(this.newTodoItem);
+    this.todoService.addTodo(this.newTodoItem);
     this.newTodoItem = "";
   }
 
   removeTodo(event: number) {
-    this.todoList.splice(event, 1);
+    this.todoService.removeTodo(event);
   }
 }
