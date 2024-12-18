@@ -1,4 +1,4 @@
-<app-todo-list [todos]="todoList" (removeTodoClicked)="removeTodo($event)"></app-todo-list>
+<app-todo-list [todos]="todoList" (removeTodoClicked)="removeTodo($event)" (completedTodoClicked)="updateTodo($event)"></app-todo-list>
 
 <input type="text" [(ngModel)]="newTodoItem">
 <button (click)="addNewTodoItem()">Add new todo</button>

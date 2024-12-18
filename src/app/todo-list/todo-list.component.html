@@ -1,7 +1,7 @@
 @if (listVisible) {
 <ul>
     @for (todoItem of todos; track $index) {
-    <li>{{ todoItem }} <span (click)="removeButtonClicked($index)">x</span></li>
+        <li>{{ todoItem.name }} <input type="checkbox" (change)="completionClicked(todoItem)" [(ngModel)]="todoItem.completed"> <span (click)="removeButtonClicked(todoItem)">x</span></li>
     }
 </ul>
 }
